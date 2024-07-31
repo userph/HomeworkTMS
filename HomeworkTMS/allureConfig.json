@@ -1,0 +1,16 @@
+{
+
+  "allure": {
+    "directory": "allure-results",
+    "links": [
+      "https://jira.com/{issue}",
+      "https://tms.com/{tms}"
+
+
+    ]
+
+
+  }
+
+
+}

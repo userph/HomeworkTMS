@@ -1,0 +1,20 @@
+{
+  "Name": "TestPhilipProject",
+  "Announcement": "TestAnnouncement",
+  "ShownTheAnnouncement": "yes",
+  "EnableTestCaseApprovals": "yes",
+  "DefaultAccess": "Tester",
+  "DefectViewUrl": "https://tracker.com/view?id=%id%",
+  "DefectAddUrl": "https://tracker.com/view?id=%id%",
+  "DefectPlugin": "VersionOne",
+  "ReferenceViewUrl": "https://tracker.com/view?id=%id%",
+  "ReferenceAddUrl": "https://tracker.com/view?id=%id%",
+  "ReferencePlugin": "Trello",
+  "Label": "TestPhilipLabel",
+  "Description": "TestDescription",
+  "SystemName": "test_system_name",
+  "Type": "String",
+  "Fallback": "TestFallback"
+
+
+}
