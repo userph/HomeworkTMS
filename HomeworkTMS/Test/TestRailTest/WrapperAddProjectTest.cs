@@ -20,32 +20,15 @@ public class WrapperAddProjectTest : BaseTest
         AutorizationPage.Autorization();
 
 
-
-        try
-
-        {
+        SubscriptionPage.ErrorModalWindow();
 
 
-            SubscriptionPage.ErrorModalWindow();
+        SubscriptionPage.PressConfirmationButton();
 
 
-            SubscriptionPage.PressConfirmationButton();
+        ProjectsOverviewPage.OpenPageByUrl(ProjectsOverviewPage.GetQacTestRailURL(), ProjectsOverviewPage.GetEndPoint());
 
 
-            ProjectsOverviewPage.OpenPageByUrl(ProjectsOverviewPage.GetQacTestRailURL(), ProjectsOverviewPage.GetEndPoint());
-
-            ProjectsOverviewPage.PressAddProjectButton();
-
-
-
-        }
-
-        catch (NoSuchElementException)
-
-        {
-            DashboardPage.PressAddProjectButton();
-
-        }
 
 
 
@@ -57,12 +40,15 @@ public class WrapperAddProjectTest : BaseTest
 
 
 
-    [Test]
+    [Test, Order(0)]
 
     public void AddProject()
 
     {
-        
+
+
+      ProjectsOverviewPage.PressAddProjectButton();
+
         WrapperAddProjectPage.InputName();
         WrapperAddProjectPage.InputAnnouncement();
         WrapperAddProjectPage.SelectUseRadioButton();
@@ -88,8 +74,7 @@ public class WrapperAddProjectTest : BaseTest
        
        
         WrapperAddProjectPage.PressAddUserButton();
-       
-       WrapperAddProjectPage.InputUserLabel();
+        WrapperAddProjectPage.InputUserLabel();
 
      
       WrapperAddProjectPage.InputUserDescription();
@@ -100,16 +85,24 @@ public class WrapperAddProjectTest : BaseTest
         WrapperAddProjectPage.InputUserFallback();
         WrapperAddProjectPage.AddUser();
         WrapperAddProjectPage.AddProject();
-     Thread.Sleep(3000);
-     
+        ProjectsOverviewPage.CheckProjectAddition();
 
-
-
-
-
-
+  
     }
 
+
+   
+    [Test, Order(1)]
+
+    public void DeleteProject()
+
+    {
+        ProjectsOverviewPage.PressDeleteProjectButton();
+        ProjectsOverviewPage.SelectDeleteCheckbox();
+        ProjectsOverviewPage.SelectConfirmationDeleteOkButton();
+        ProjectsOverviewPage.CheckProjectDeleted();
+       
+    }
 
 
 

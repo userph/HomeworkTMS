@@ -136,6 +136,9 @@ public class Checkbox
     }
 
 
+    public void Click() => _uiElement.Click(); 
+
+
 
 
 
