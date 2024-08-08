@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using TestRail.Elements;
 
 
-public class WrapperAddProjectPage : BasePage
+public class WrapperAddProjectPage : LcBasePage
 {
 
     private string _endPoint = "index.php?/admin/projects/add/1";
@@ -217,6 +217,10 @@ public class WrapperAddProjectPage : BasePage
 
     public void AddProject() => AddProjectButton().Click();
 
+    protected override bool EvaluateLoadedStatus()
+    {
+        return AddProjectButton().Displayed;
+    }
 }
 
 
