@@ -16,6 +16,7 @@ public class WrapperAddProjectTest : BaseTest
     public void Setup()
     {
 
+        AutorizationPage.Load();    
 
         AutorizationPage.Autorization();
 

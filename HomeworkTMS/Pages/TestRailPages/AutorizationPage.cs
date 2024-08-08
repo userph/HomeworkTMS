@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-    public class AutorizationPage: BasePage
+    public class AutorizationPage: LcBasePage
     {
 
     private string _endPoint = "index.php?/auth/login/";
@@ -82,7 +82,7 @@ using System.Threading.Tasks;
     public void Autorization()
 
     {
-        OpenPageByUrl(GetQacTestRailURL(), GetEndPoint());
+       
         InputLogin(GetQacTestRailUsername());
         InputPassword(GetQacTestRailPassword());
         PressLoginButton();
@@ -91,8 +91,9 @@ using System.Threading.Tasks;
 
 
 
-
-
-
+    protected override bool EvaluateLoadedStatus()
+    {
+        return FindLoginButton().Displayed;
+    }
 }
 
