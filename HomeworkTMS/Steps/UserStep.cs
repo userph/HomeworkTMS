@@ -25,21 +25,12 @@ using System.Threading.Tasks;
 
 
 
-    public void Autorization(string username, string password)
+    public void Autorization(UserModel userModel)
 
     {
 
-
-        /*
-
-        _autorizationPage.FindInputLoginField().SendKeys(_autorizationPage.GetQacTestRailUsername());
-        _autorizationPage.FindInputPasswordField().SendKeys(_autorizationPage.GetQacTestRailPassword());
-        _autorizationPage.FindLoginButton().Click();
-
-        */
-
-        _autorizationPage.FindInputLoginField().SendKeys(username);
-        _autorizationPage.FindInputPasswordField().SendKeys(password);
+        _autorizationPage.FindInputLoginField().SendKeys(userModel.UserName);
+        _autorizationPage.FindInputPasswordField().SendKeys(userModel.Password);
         _autorizationPage.FindLoginButton().Click();
 
 

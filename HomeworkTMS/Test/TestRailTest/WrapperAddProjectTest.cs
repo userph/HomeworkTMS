@@ -23,11 +23,18 @@ public class WrapperAddProjectTest : BaseTest
 
 
 
-        //    AutorizationPage.Load();
+
+        UserModel admin = new UserModel()
+        {
+            UserName = AutorizationPage.GetQacTestRailUsername(),
+            Password = AutorizationPage.GetQacTestRailPassword()
 
 
-        UserStep.Autorization(AutorizationPage.GetQacTestRailUsername(), AutorizationPage.GetQacTestRailPassword());
+        };
 
+
+
+        UserStep.Autorization(admin);
 
         SubscriptionPage.ErrorModalWindow();
 
