@@ -35,7 +35,7 @@ public class BaseTest
 
     public AddProjectPage AddProjectPage { get; set; }
 
-    public WrapperAddProjectPage WrapperAddProjectPage { get; set; }
+
     public DashboardPage DashboardPage { get; set; }
 
     public ProjectsOverviewPage ProjectsOverviewPage { get; set; } 
@@ -57,6 +57,9 @@ public class BaseTest
     public ActionsHelper ActionsHelper { get; set; }
 
     public WaitsHelper WaitsHelper { get; set; }
+
+    public NavigationStep NavigationStep { get; set; }
+    public UserStep UserStep { get; set; }
 
 
 
@@ -91,7 +94,6 @@ public class BaseTest
         AlertsPage = new AlertsPage(Driver);
         FileUploadPage = new FileUploadPage(Driver);    
         AddProjectPage = new AddProjectPage(Driver);
-        WrapperAddProjectPage = new WrapperAddProjectPage(Driver);
         DashboardPage = new DashboardPage(Driver);
         ProjectsOverviewPage = new ProjectsOverviewPage(Driver);
         AllertsHelper = new AllertsHelper(Driver);
@@ -103,6 +105,8 @@ public class BaseTest
         ActionsHelper = new ActionsHelper(Driver);
         WaitsHelper = new WaitsHelper(Driver, Timeout);
         SubscriptionPage = new SubscriptionPage(Driver);
+        NavigationStep = new NavigationStep(Driver);
+        UserStep = new UserStep(Driver);
     }
 
     [TearDown]

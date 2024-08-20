@@ -1,16 +1,75 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework.Internal;
+using OpenQA.Selenium;
+using OpenQA.Selenium.DevTools.V125.DOM;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestRail.Elements;
 
 
-public class AddProjectPage : BasePage
+public class AddProjectPage : LcBasePage
 {
 
     private string _endPoint = "index.php?/admin/projects/add/1";
+    public Tab Tab { get; set; }
+
+
+
+    public By NameBy =
+        By.XPath("//input[@data-testid='addProjectNameInput']");
+    private static readonly By AnnouncementBy =
+        By.XPath("//textarea[@data-testid='addEditProjectAnnouncement']");
+    private static readonly By DefectViewUrlBy =
+        By.Id("defect_id_url");
+    private static readonly By DefectAddUrlBy =
+        By.Id("defect_add_url");
+    private static readonly By ReferenceViewUrlBy =
+        By.Id("reference_id_url");
+    private static readonly By ReferenceAddUrlBy =
+        By.Id("reference_add_url");
+    private static readonly By UserLabelBy =
+        By.Id("userFieldLabel");
+    private static readonly By UserDescriptionBy = By.Id("userFieldDesc");
+
+    private static readonly By UserSystemNameBy =
+        By.Id("userFieldName");
+    private static readonly By UserFallbackBy =
+        By.Id("userFieldFallback");
+
+    private static readonly By AccessTabBy = By.Id("projects-tabs-access");
+
+
+    private static readonly By DefectsTabBy = By.Id("projects-tabs-defects");
+
+
+    private static readonly By ReferencesTabBy = By.Id("projects-tabs-references");
+
+
+    private static readonly By UserVariablesBy = By.Id("users-fields-fields");
+
+
+    private static readonly By AddUserButtonBy = 
+        By.XPath("//a[contains(., 'Add User Variable')]");
+
+    private static readonly By ShowAnnouncementBy = By.Name("show_announcement");
+
+
+    private static readonly By DefaultAccessBy = By.Id("access");
+
+
+    private static readonly By DefectPluginBy = By.XPath("//div[@id='defect_plugin_chzn' and @class='chzn-container chzn-container-single']");
+    private static readonly By ReferencePluginBy = By.XPath("//div[@id='reference_plugin_chzn' and @class='chzn-container chzn-container-single']");
+    private static readonly By UserTypeBy = By.Id("userFieldType");
+
+
+    private static readonly By UseRadioButtonBy = By.XPath("//input[@type='radio' and @name='suite_mode']");
+
+    private static readonly By UsserAcceptButtonBy = By.Id("userFieldSubmit");
+
+    private static readonly By AddProjectButtonBy = By.XPath("//button[@data-testid='addEditProjectAddButton']");
 
 
 
@@ -18,16 +77,55 @@ public class AddProjectPage : BasePage
 
 
 
-    public AddProjectPage(IWebDriver driver) : base(driver)
+    public StringField Name() => new StringField(Driver, NameBy);
+    public StringField Announcement() => new StringField(Driver, AnnouncementBy);
+    public StringField DefectViewUrl() => new StringField(Driver, DefectViewUrlBy);
+    public StringField DefectAddUrl() => new StringField(Driver, DefectAddUrlBy);
+    public StringField ReferenceViewUrl() => new StringField(Driver, ReferenceViewUrlBy);
+    public StringField ReferenceAddUrl() => new StringField(Driver, ReferenceAddUrlBy);
+    public StringField UserLabel() => new StringField(Driver, UserLabelBy);
+    public StringField UserDescription() => new StringField(Driver, UserDescriptionBy);
+    public StringField UserSystemName() => new StringField(Driver, UserSystemNameBy);
+    public StringField UserFallback() => new StringField(Driver, UserFallbackBy);
+
+
+
+    public Tab AccessTab() => new Tab(Driver, AccessTabBy);
+    public Tab DefectsTab() => new Tab(Driver, DefectsTabBy);
+    public Tab ReferencesTab() => new Tab(Driver, ReferencesTabBy);
+    public Tab UserVariables() => new Tab(Driver, UserVariablesBy);
+
+
+    public Button AddUserButton() => new Button(Driver, AddUserButtonBy);
+
+    public Button AddProjectButton() => new Button(Driver, AddProjectButtonBy);
+
+    public Checkbox ShowAnnouncementCheckbox() => new Checkbox(Driver, ShowAnnouncementBy);
+
+
+    public Dropdown DefaultAccess() => new Dropdown(Driver, DefaultAccessBy);
+    public Dropdown DefectPlugin() => new Dropdown(Driver, DefectPluginBy);
+    public Dropdown ReferencePlugin() => new Dropdown(Driver, ReferencePluginBy);
+
+    public Dropdown UserType() => new Dropdown(Driver, UserTypeBy);
+
+    public RadioButton UseRadioButton() => new RadioButton(Driver, UseRadioButtonBy);
+
+    public Button UserAcceptButton() => new Button(Driver, UsserAcceptButtonBy);
+
+
+
+    public AddProjectPage(IWebDriver driver, bool openPageByUrl = false) : base(driver, openPageByUrl)
 
     {
         Driver = driver;
-
+        if (openPageByUrl)
+            Load();
 
     }
 
 
-    public IWebDriver Driver { get; set; }
+
 
 
     public override string GetEndPoint()
@@ -38,124 +136,94 @@ public class AddProjectPage : BasePage
 
 
 
+    public void InputName() =>
+        Name().SendKeyWithTimeStamp(ContentConfigurator.ReadConfiguration().Name);
+    public void InputAnnouncement() =>
+        Announcement().SendKey(ContentConfigurator.ReadConfiguration().Announcement);
 
-    public By GetNameFieldBy() =>
-        By.XPath("//input[@data-testid='addProjectNameInput']");
+    public void InputDefectViewUrl() =>
+        DefectViewUrl().SendKey(ContentConfigurator.ReadConfiguration().DefectViewUrl);
 
-    public By GetAnnouncementFieldBy() =>
-        By.XPath("//textarea[@data-testid='addEditProjectAnnouncement']");
+    public void InputDefectAddUrl() =>
+        DefectAddUrl().SendKey(ContentConfigurator.ReadConfiguration().DefectAddUrl);
 
-    public By GetAnnouncementCheckboxBy() =>
-        By.XPath("//input[@data-testid='addEditProjectShowAnnouncement']");
+    public void InputReferenceViewUrl() =>
+        ReferenceViewUrl().SendKey(ContentConfigurator.ReadConfiguration().ReferenceViewUrl);
 
-    public By GetEnableTestCheckboxBy() =>
-    By.XPath("//input[@data-testid='addEditProjectCaseStatusesEnabled']");
+    public void InputReferenceAddUrl() =>
+        ReferenceAddUrl().SendKey(ContentConfigurator.ReadConfiguration().ReferenceAddUrl);
 
-    public By GetDefaultAccessDropDownListBy() =>
-        By.XPath("//select[@data-testid='addEditProjectAccessTabAccess']");
+    public void InputUserLabel() =>
+        UserLabel().SendKey(ContentConfigurator.ReadConfiguration().Label);
 
-    public By GetDefectViewUrlBy() => By.Id("defect_id_url");
+    public void InputUserDescription() =>
+        UserDescription().SendKey(ContentConfigurator.ReadConfiguration().Description);
 
-    public By GetDefectAddUrlBy() => By.Id("defect_add_url");
+    public void InputUserSystemName() =>
+        UserSystemName().SendKey(ContentConfigurator.ReadConfiguration().SystemName);
 
-    public By GetDefectPluginBy() => By.XPath("//div[@id='defect_plugin_chzn' and @class='chzn-container chzn-container-single']");
-
-
-    public By GetReferenceViewUrlBy() => By.Id("reference_id_url");
-
-    public By GetReferenceAddUrlBy() => By.Id("reference_add_url");
-
-    public By GetReferencePluginBy() => By.XPath("//div[@id='reference_plugin_chzn' and @class='chzn-container chzn-container-single']");
-
-    public By GetUserVariableButtonBy() => By.XPath("//a[contains(., 'Add User Variable')]");
-
-    public By GetUserFieldLabelBy() => By.Id("userFieldLabel");
-    public By GetUserFieldDescriptionBy() => By.Id("userFieldDesc");
-    public By GetUserFieldNameBy() => By.Id("userFieldName");
-    public By GetUserFieldTypeBy() => By.Id("userFieldType");
-    public By GetUserFieldFallbackBy() => By.Id("userFieldFallback");
-
-    public By GetDefectPluginDropDownListBy() => By.XPath("//div[@id='defect_plugin_chzn' and @class='chzn-container chzn-container-single']");
-    public By GetReferencePluginDropDownListBy() => By.XPath("//div[@id='reference_plugin_chzn' and @class='chzn-container chzn-container-single']");
-
-    public By GetAddEditProjectAddButtonBy() => By.XPath("//button[@data-testid='addEditProjectAddButton']");
-
-    public By GetConfigureVariableConfirmationBy() => By.XPath("//button[@data-testid='configureVariableDialogUserFieldOk']");
+    public void InputUserFallback() =>
+        UserFallback().SendKey(ContentConfigurator.ReadConfiguration().Fallback);
 
 
 
 
 
-
-
-    public void SelectTab(string TabTitle)
-
-    {
-
-
-        IWebElement Tab = Driver.FindElement(By.XPath($"//a[@onclick='App.Tabs.activate(this); ' and contains(., '{TabTitle}')]"));
-        Tab.Click();
-
-    }
+    public void SelectAccessTab() => AccessTab().Click();
+    public void SelectDefectsTab() => DefectsTab().Click();
+    public void SelectReferencesTab() => ReferencesTab().Click();
+    public void SelectUserVariables() => UserVariables().Click();
 
 
 
+    public void PressAddUserButton() => AddUserButton().Click();
 
-
-
-    
+    public void SelectShowAnnouncementCheckbox() => ShowAnnouncementCheckbox().Select();
 
 
 
 
 
-    public void SelectFromDropdownList(IWebElement DropDownList, string Text)
+    public void ShowAnnouncementCheckboxIsUnchecked() => ShowAnnouncementCheckbox().CheckboxStatus("IsUnchecked");
+    public void ShowAnnouncementCheckboxIsChecked() => ShowAnnouncementCheckbox().CheckboxStatus("IsСhecked");
+
+
+    public void SelectDefaultAccess() => DefaultAccess().SelectByText(ContentConfigurator.ReadConfiguration().DefaultAccess);
+
+    public void SelectFromDefectDropdownList()
 
     {
 
-        SelectElement dropdown = new SelectElement(DropDownList);
-
-        dropdown.SelectByText(Text);
-
-    }
-
-
-
-    public void SelectFromDefectDropdownList(By DropDownListBy, string Text)
-
-    {
-        IWebElement DropDownList = Driver.FindElement(DropDownListBy);
-        DropDownList.Click();
-       IWebElement SelectedOption = Driver.FindElement(By.XPath($"//li[contains(@id, 'defect') and text()='{Text}']"));
-       SelectedOption.Click();
-    }
-
-
-    public void SelectFromReferenceDropdownList(By DropDownListBy, string Text)
-
-    {
-        IWebElement DropDownList = Driver.FindElement(DropDownListBy);
-        DropDownList.Click();
-        IWebElement SelectedOption = Driver.FindElement(By.XPath($"//li[contains(@id, 'reference') and text()='{Text}']"));
+        DefectPlugin().Click();
+        IWebElement SelectedOption = Driver.FindElement(By.XPath($"//li[contains(@id, 'defect') and text()='{ContentConfigurator.ReadConfiguration().DefectPlugin}']"));
         SelectedOption.Click();
     }
 
 
+    public void SelectFromReferenceDropdownList()
+
+    {
+
+        ReferencePlugin().Click();
+        IWebElement SelectedOption = Driver.FindElement(By.XPath($"//li[contains(@id, 'reference') and text()='{ContentConfigurator.ReadConfiguration().DefectPlugin}']"));
+        SelectedOption.Click();
+    }
+
+    public void SelectUserType() => UserType().SelectByText(ContentConfigurator.ReadConfiguration().Type);
 
 
+    public void SelectUseRadioButton() => UseRadioButton().SelectByIndex(1);
 
-  
-
-
-
+    public void AddUser() => UserAcceptButton().Click();
 
 
+    public void AddProject() => AddProjectButton().Click();
 
+    protected override bool EvaluateLoadedStatus()
+    {
+        return AddProjectButton().Displayed;
+    }
 }
-
-
-
-
 
 
 

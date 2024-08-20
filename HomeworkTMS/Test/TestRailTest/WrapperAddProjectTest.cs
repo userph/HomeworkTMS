@@ -16,9 +16,17 @@ public class WrapperAddProjectTest : BaseTest
     public void Setup()
     {
 
-        AutorizationPage.Load();    
 
-        AutorizationPage.Autorization();
+
+
+      NavigationStep.NavigateToAutorizationPage();
+
+
+
+        //    AutorizationPage.Load();
+
+
+        UserStep.Autorization();
 
 
         SubscriptionPage.ErrorModalWindow();
@@ -50,42 +58,42 @@ public class WrapperAddProjectTest : BaseTest
 
       ProjectsOverviewPage.PressAddProjectButton();
 
-        WrapperAddProjectPage.InputName();
-        WrapperAddProjectPage.InputAnnouncement();
-        WrapperAddProjectPage.SelectUseRadioButton();
+        AddProjectPage.InputName();
+        AddProjectPage.InputAnnouncement();
+        AddProjectPage.SelectUseRadioButton();
    
-        WrapperAddProjectPage.ShowAnnouncementCheckboxIsUnchecked();
-        WrapperAddProjectPage.SelectShowAnnouncementCheckbox();
-        WrapperAddProjectPage.ShowAnnouncementCheckboxIsChecked();
-        WrapperAddProjectPage.SelectAccessTab();
-        WrapperAddProjectPage.SelectDefaultAccess();
-        WrapperAddProjectPage.SelectDefectsTab();
-        WrapperAddProjectPage.InputDefectViewUrl();
-        WrapperAddProjectPage.InputDefectAddUrl();
+       AddProjectPage.ShowAnnouncementCheckboxIsUnchecked();
+        AddProjectPage.SelectShowAnnouncementCheckbox();
+       AddProjectPage.ShowAnnouncementCheckboxIsChecked();
+        AddProjectPage.SelectAccessTab();
+        AddProjectPage.SelectDefaultAccess();
+       AddProjectPage.SelectDefectsTab();
+        AddProjectPage.InputDefectViewUrl();
+        AddProjectPage.InputDefectAddUrl();
 
-        WrapperAddProjectPage.SelectFromDefectDropdownList();
+        AddProjectPage.SelectFromDefectDropdownList();
 
 
-        WrapperAddProjectPage.SelectReferencesTab();
-        WrapperAddProjectPage.InputReferenceViewUrl();
-        WrapperAddProjectPage.InputReferenceAddUrl();
-        WrapperAddProjectPage.SelectFromReferenceDropdownList();
+        AddProjectPage.SelectReferencesTab();
+        AddProjectPage.InputReferenceViewUrl();
+        AddProjectPage.InputReferenceAddUrl();
+       AddProjectPage.SelectFromReferenceDropdownList();
 
-      WrapperAddProjectPage.SelectUserVariables();
+      AddProjectPage.SelectUserVariables();
        
        
-        WrapperAddProjectPage.PressAddUserButton();
-        WrapperAddProjectPage.InputUserLabel();
+       AddProjectPage.PressAddUserButton();
+        AddProjectPage.InputUserLabel();
 
      
-      WrapperAddProjectPage.InputUserDescription();
+      AddProjectPage.InputUserDescription();
         
-      WrapperAddProjectPage.InputUserSystemName();
-        WrapperAddProjectPage.SelectUserType();
+      AddProjectPage.InputUserSystemName();
+       AddProjectPage.SelectUserType();
 
-        WrapperAddProjectPage.InputUserFallback();
-        WrapperAddProjectPage.AddUser();
-        WrapperAddProjectPage.AddProject();
+        AddProjectPage.InputUserFallback();
+        AddProjectPage.AddUser();
+        AddProjectPage.AddProject();
         ProjectsOverviewPage.CheckProjectAddition();
 
   
