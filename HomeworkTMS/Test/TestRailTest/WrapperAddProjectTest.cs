@@ -26,7 +26,7 @@ public class WrapperAddProjectTest : BaseTest
         //    AutorizationPage.Load();
 
 
-        UserStep.Autorization();
+        UserStep.Autorization(AutorizationPage.GetQacTestRailUsername(), AutorizationPage.GetQacTestRailPassword());
 
 
         SubscriptionPage.ErrorModalWindow();
