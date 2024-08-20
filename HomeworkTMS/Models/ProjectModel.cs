@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeworkTMS.Models
-{
+
     public class ProjectModel
     {
 
@@ -48,4 +47,4 @@ namespace HomeworkTMS.Models
 
 
     }
-}
+

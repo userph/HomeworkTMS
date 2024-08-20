@@ -42,34 +42,34 @@ using System.Threading.Tasks;
 
 
 
-    public void InputProjectData() 
+    public void InputProjectData(ProjectModel projectsModel) 
     
     {
   
 
 
-        _addProjectPage.Name().SendKeyWithTimeStamp(ContentConfigurator.ReadConfiguration().Name);
-        _addProjectPage.Announcement().SendKey(ContentConfigurator.ReadConfiguration().Announcement);
-        _addProjectPage.SelectShowAnnouncementCheckbox(ContentConfigurator.ReadConfiguration().ShownTheAnnouncement);
-        _addProjectPage.UseRadioButton().SelectByIndex(ContentConfigurator.ReadConfiguration().UseIndex);
-        _addProjectPage.SelectEnableTestCaseApprovals(ContentConfigurator.ReadConfiguration().EnableTestCaseApprovals);
+        _addProjectPage.Name().SendKeyWithTimeStamp(projectsModel.Name);
+        _addProjectPage.Announcement().SendKey(projectsModel.Announcement);
+        _addProjectPage.SelectShowAnnouncementCheckbox(projectsModel.ShownTheAnnouncement);
+        _addProjectPage.UseRadioButton().SelectByIndex(projectsModel.UseIndex);
+        _addProjectPage.SelectEnableTestCaseApprovals(projectsModel.EnableTestCaseApprovals);
         _addProjectPage.AccessTab().Click();
-        _addProjectPage.DefaultAccess().SelectByText(ContentConfigurator.ReadConfiguration().DefaultAccess);
+        _addProjectPage.DefaultAccess().SelectByText(projectsModel.DefaultAccess);
         _addProjectPage.DefectsTab().Click();
-        _addProjectPage.DefectViewUrl().SendKey(ContentConfigurator.ReadConfiguration().DefectViewUrl);
-        _addProjectPage.DefectAddUrl().SendKey(ContentConfigurator.ReadConfiguration().DefectAddUrl);
-        _addProjectPage.SelectFromDefectDropdownList(ContentConfigurator.ReadConfiguration().DefectPlugin);
+        _addProjectPage.DefectViewUrl().SendKey(projectsModel.DefectViewUrl);
+        _addProjectPage.DefectAddUrl().SendKey(projectsModel.DefectAddUrl);
+        _addProjectPage.SelectFromDefectDropdownList(projectsModel.DefectPlugin);
         _addProjectPage.ReferencesTab().Click();
-        _addProjectPage.ReferenceViewUrl().SendKey(ContentConfigurator.ReadConfiguration().ReferenceViewUrl);
-        _addProjectPage.ReferenceAddUrl().SendKey(ContentConfigurator.ReadConfiguration().ReferenceAddUrl);
-        _addProjectPage.SelectFromReferenceDropdownList(ContentConfigurator.ReadConfiguration().DefectPlugin);
+        _addProjectPage.ReferenceViewUrl().SendKey(projectsModel.ReferenceViewUrl);
+        _addProjectPage.ReferenceAddUrl().SendKey(projectsModel.ReferenceAddUrl);
+        _addProjectPage.SelectFromReferenceDropdownList(projectsModel.DefectPlugin);
         _addProjectPage.UserVariables().Click();
         _addProjectPage.AddUserButton().Click();
-        _addProjectPage.UserLabel().SendKey(ContentConfigurator.ReadConfiguration().Label);
-        _addProjectPage.UserDescription().SendKey(ContentConfigurator.ReadConfiguration().Description);
-        _addProjectPage.UserSystemName().SendKey(ContentConfigurator.ReadConfiguration().SystemName);
-        _addProjectPage.UserType().SelectByText(ContentConfigurator.ReadConfiguration().Type);
-        _addProjectPage.UserFallback().SendKey(ContentConfigurator.ReadConfiguration().Fallback);
+        _addProjectPage.UserLabel().SendKey(projectsModel.Label);
+        _addProjectPage.UserDescription().SendKey(projectsModel.Description);
+        _addProjectPage.UserSystemName().SendKey(projectsModel.SystemName);
+        _addProjectPage.UserType().SelectByText(projectsModel.TypeName);
+        _addProjectPage.UserFallback().SendKey(projectsModel.Fallback);
         _addProjectPage.UserAcceptButton().Click();
         _addProjectPage.AddProjectButton().Click();
 
