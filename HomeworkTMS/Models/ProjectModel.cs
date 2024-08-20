@@ -12,6 +12,8 @@ namespace HomeworkTMS.Models
         public string? Name { get; set; }
         public string? Announcement { get; set; }
 
+        public int UseIndex { get; set; }
+
         public string? ShownTheAnnouncement { get; set; }
 
         public string? EnableTestCaseApprovals { get; set; }
@@ -24,11 +26,14 @@ namespace HomeworkTMS.Models
 
         public string? DefectPlugin { get; set; }
 
+
         public string? ReferenceViewUrl { get; set; }
 
         public string? ReferenceAddUrl { get; set; }
 
         public string? ReferencePlugin { get; set; }
+
+
 
         public string? Label { get; set; }
 
@@ -36,7 +41,7 @@ namespace HomeworkTMS.Models
 
         public string? SystemName { get; set; }
 
-        public string? Type { get; set; }
+        public string? TypeName { get; set; }
 
         public string? Fallback { get; set; }
 

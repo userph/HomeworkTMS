@@ -73,28 +73,6 @@ using System.Threading.Tasks;
 
 
 
-    /*Перенос в Steps
-
-    public void InputLogin(string Username) => FindInputLoginField().SendKeys(Username);
-    public void InputPassword(string Username) => FindInputPasswordField().SendKeys(Username);
-
-    public void PressLoginButton() => FindLoginButton().Click();
-
-
-
-
-    public void Autorization()
-
-    {
-       
-        InputLogin(GetQacTestRailUsername());
-        InputPassword(GetQacTestRailPassword());
-        PressLoginButton();
-
-    }
-
-
-    */
 
     protected override bool EvaluateLoadedStatus()
     {

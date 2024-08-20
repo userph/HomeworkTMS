@@ -45,14 +45,7 @@ using System.Threading.Tasks;
     public void InputProjectData() 
     
     {
-
-        /*
-            public string? ShownTheAnnouncement { get; set; }
-            public string? EnableTestCaseApprovals { get; set; }
-
-        */
-
-   
+  
 
 
         _addProjectPage.Name().SendKeyWithTimeStamp(ContentConfigurator.ReadConfiguration().Name);
@@ -83,11 +76,7 @@ using System.Threading.Tasks;
 
 
 
-        /*
 
-
-
-        */
 
 
 

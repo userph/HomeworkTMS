@@ -14,7 +14,7 @@
   "Label": "TestPhilipLabel",
   "Description": "TestDescription",
   "SystemName": "test_system_name",
-  "Type": "String",
+  "TypeName": "String",
   "Fallback": "TestFallback"
 
 

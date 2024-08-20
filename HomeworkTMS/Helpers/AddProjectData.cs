@@ -41,7 +41,7 @@ public class AddProjectData
 
     public string? SystemName { get; set; }
 
-    public string? Type { get; set; }
+    public string? TypeName { get; set; }
 
     public string? Fallback { get; set; }
 
