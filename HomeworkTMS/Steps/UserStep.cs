@@ -46,15 +46,20 @@ using System.Threading.Tasks;
     
     {
 
+        /*
+            public string? ShownTheAnnouncement { get; set; }
+            public string? EnableTestCaseApprovals { get; set; }
 
+        */
+
+   
 
 
         _addProjectPage.Name().SendKeyWithTimeStamp(ContentConfigurator.ReadConfiguration().Name);
         _addProjectPage.Announcement().SendKey(ContentConfigurator.ReadConfiguration().Announcement);
-        _addProjectPage.UseRadioButton().SelectByIndex(1);
-        _addProjectPage.ShowAnnouncementCheckbox().CheckboxStatus("IsUnchecked");
-        _addProjectPage.ShowAnnouncementCheckbox().Select();
-        _addProjectPage.ShowAnnouncementCheckbox().CheckboxStatus("IsСhecked");
+        _addProjectPage.SelectShowAnnouncementCheckbox(ContentConfigurator.ReadConfiguration().ShownTheAnnouncement);
+        _addProjectPage.UseRadioButton().SelectByIndex(ContentConfigurator.ReadConfiguration().UseIndex);
+        _addProjectPage.SelectEnableTestCaseApprovals(ContentConfigurator.ReadConfiguration().EnableTestCaseApprovals);
         _addProjectPage.AccessTab().Click();
         _addProjectPage.DefaultAccess().SelectByText(ContentConfigurator.ReadConfiguration().DefaultAccess);
         _addProjectPage.DefectsTab().Click();
@@ -74,6 +79,17 @@ using System.Threading.Tasks;
         _addProjectPage.UserFallback().SendKey(ContentConfigurator.ReadConfiguration().Fallback);
         _addProjectPage.UserAcceptButton().Click();
         _addProjectPage.AddProjectButton().Click();
+
+
+
+
+        /*
+
+
+
+        */
+
+
 
     }
 

@@ -56,6 +56,8 @@ public class AddProjectPage : LcBasePage
 
     private static readonly By ShowAnnouncementBy = By.Name("show_announcement");
 
+    private static readonly By EnableTestCaseApprovalsBy = By.Name("case_statuses_enabled");
+
 
     private static readonly By DefaultAccessBy = By.Id("access");
 
@@ -101,7 +103,7 @@ public class AddProjectPage : LcBasePage
     public Button AddProjectButton() => new Button(Driver, AddProjectButtonBy);
 
     public Checkbox ShowAnnouncementCheckbox() => new Checkbox(Driver, ShowAnnouncementBy);
-
+    public Checkbox EnableTestCaseApprovalsCheckbox() => new Checkbox(Driver, EnableTestCaseApprovalsBy);
 
     public Dropdown DefaultAccess() => new Dropdown(Driver, DefaultAccessBy);
     public Dropdown DefectPlugin() => new Dropdown(Driver, DefectPluginBy);
@@ -158,10 +160,30 @@ public class AddProjectPage : LcBasePage
     }
 
 
+    public void SelectShowAnnouncementCheckbox(string ShowAnnouncementCheckboxValue)
+
+    {
+
+        if (ShowAnnouncementCheckboxValue == "yes")
+
+            ShowAnnouncementCheckbox().Select();
+
+
+    }
+
+
+    public void SelectEnableTestCaseApprovals(string EnableTestCaseApprovalsCheckboxValue)
+
+    {
+
+        if (EnableTestCaseApprovalsCheckboxValue == "yes")
+            EnableTestCaseApprovalsCheckbox().Select();
+
+
+    }
 
 
 
-    
 
 
 
