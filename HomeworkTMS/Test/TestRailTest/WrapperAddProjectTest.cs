@@ -63,44 +63,8 @@ public class WrapperAddProjectTest : BaseTest
     {
 
 
-      ProjectsOverviewPage.PressAddProjectButton();
-
-        AddProjectPage.InputName();
-        AddProjectPage.InputAnnouncement();
-        AddProjectPage.SelectUseRadioButton();
-   
-       AddProjectPage.ShowAnnouncementCheckboxIsUnchecked();
-        AddProjectPage.SelectShowAnnouncementCheckbox();
-       AddProjectPage.ShowAnnouncementCheckboxIsChecked();
-        AddProjectPage.SelectAccessTab();
-        AddProjectPage.SelectDefaultAccess();
-       AddProjectPage.SelectDefectsTab();
-        AddProjectPage.InputDefectViewUrl();
-        AddProjectPage.InputDefectAddUrl();
-
-        AddProjectPage.SelectFromDefectDropdownList();
-
-
-        AddProjectPage.SelectReferencesTab();
-        AddProjectPage.InputReferenceViewUrl();
-        AddProjectPage.InputReferenceAddUrl();
-       AddProjectPage.SelectFromReferenceDropdownList();
-
-      AddProjectPage.SelectUserVariables();
-       
-       
-       AddProjectPage.PressAddUserButton();
-        AddProjectPage.InputUserLabel();
-
-     
-      AddProjectPage.InputUserDescription();
-        
-      AddProjectPage.InputUserSystemName();
-       AddProjectPage.SelectUserType();
-
-        AddProjectPage.InputUserFallback();
-        AddProjectPage.AddUser();
-        AddProjectPage.AddProject();
+        ProjectsOverviewPage.PressAddProjectButton();
+        UserStep.InputProjectData();
         ProjectsOverviewPage.CheckProjectAddition();
 
   

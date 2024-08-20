@@ -125,7 +125,10 @@ public class AddProjectPage : LcBasePage
     }
 
 
-
+    protected override bool EvaluateLoadedStatus()
+    {
+        return AddProjectButton().Displayed;
+    }
 
 
     public override string GetEndPoint()
@@ -135,94 +138,34 @@ public class AddProjectPage : LcBasePage
     }
 
 
-
-    public void InputName() =>
-        Name().SendKeyWithTimeStamp(ContentConfigurator.ReadConfiguration().Name);
-    public void InputAnnouncement() =>
-        Announcement().SendKey(ContentConfigurator.ReadConfiguration().Announcement);
-
-    public void InputDefectViewUrl() =>
-        DefectViewUrl().SendKey(ContentConfigurator.ReadConfiguration().DefectViewUrl);
-
-    public void InputDefectAddUrl() =>
-        DefectAddUrl().SendKey(ContentConfigurator.ReadConfiguration().DefectAddUrl);
-
-    public void InputReferenceViewUrl() =>
-        ReferenceViewUrl().SendKey(ContentConfigurator.ReadConfiguration().ReferenceViewUrl);
-
-    public void InputReferenceAddUrl() =>
-        ReferenceAddUrl().SendKey(ContentConfigurator.ReadConfiguration().ReferenceAddUrl);
-
-    public void InputUserLabel() =>
-        UserLabel().SendKey(ContentConfigurator.ReadConfiguration().Label);
-
-    public void InputUserDescription() =>
-        UserDescription().SendKey(ContentConfigurator.ReadConfiguration().Description);
-
-    public void InputUserSystemName() =>
-        UserSystemName().SendKey(ContentConfigurator.ReadConfiguration().SystemName);
-
-    public void InputUserFallback() =>
-        UserFallback().SendKey(ContentConfigurator.ReadConfiguration().Fallback);
-
-
-
-
-
-    public void SelectAccessTab() => AccessTab().Click();
-    public void SelectDefectsTab() => DefectsTab().Click();
-    public void SelectReferencesTab() => ReferencesTab().Click();
-    public void SelectUserVariables() => UserVariables().Click();
-
-
-
-    public void PressAddUserButton() => AddUserButton().Click();
-
-    public void SelectShowAnnouncementCheckbox() => ShowAnnouncementCheckbox().Select();
-
-
-
-
-
-    public void ShowAnnouncementCheckboxIsUnchecked() => ShowAnnouncementCheckbox().CheckboxStatus("IsUnchecked");
-    public void ShowAnnouncementCheckboxIsChecked() => ShowAnnouncementCheckbox().CheckboxStatus("IsСhecked");
-
-
-    public void SelectDefaultAccess() => DefaultAccess().SelectByText(ContentConfigurator.ReadConfiguration().DefaultAccess);
-
-    public void SelectFromDefectDropdownList()
+    public void SelectFromDefectDropdownList(string ReadConfigurationValue)
 
     {
 
         DefectPlugin().Click();
-        IWebElement SelectedOption = Driver.FindElement(By.XPath($"//li[contains(@id, 'defect') and text()='{ContentConfigurator.ReadConfiguration().DefectPlugin}']"));
+        IWebElement SelectedOption = Driver.FindElement(By.XPath($"//li[contains(@id, 'defect') and text()='{ReadConfigurationValue}']"));
         SelectedOption.Click();
     }
 
 
-    public void SelectFromReferenceDropdownList()
+    public void SelectFromReferenceDropdownList(string DefectPluginValue)
 
     {
 
         ReferencePlugin().Click();
-        IWebElement SelectedOption = Driver.FindElement(By.XPath($"//li[contains(@id, 'reference') and text()='{ContentConfigurator.ReadConfiguration().DefectPlugin}']"));
+        IWebElement SelectedOption = Driver.FindElement(By.XPath($"//li[contains(@id, 'reference') and text()='{DefectPluginValue}']"));
         SelectedOption.Click();
     }
 
-    public void SelectUserType() => UserType().SelectByText(ContentConfigurator.ReadConfiguration().Type);
 
 
-    public void SelectUseRadioButton() => UseRadioButton().SelectByIndex(1);
-
-    public void AddUser() => UserAcceptButton().Click();
 
 
-    public void AddProject() => AddProjectButton().Click();
+    
 
-    protected override bool EvaluateLoadedStatus()
-    {
-        return AddProjectButton().Displayed;
-    }
+
+
+
 }
 
 
