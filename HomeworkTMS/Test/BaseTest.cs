@@ -29,7 +29,7 @@ public class BaseTest
 
     public DynamicControlsPage DynamicControlsPage { get; set; }
 
-    public AlertsPage AlertsPage { get; set; }
+
 
     public FileUploadPage FileUploadPage { get; set; }
 
@@ -91,7 +91,7 @@ public class BaseTest
         TyposPage = new TyposPage(Driver);
         WindowsPage = new WindowsPage(Driver);
         DynamicControlsPage = new DynamicControlsPage(Driver);
-        AlertsPage = new AlertsPage(Driver);
+       
         FileUploadPage = new FileUploadPage(Driver);    
         AddProjectPage = new AddProjectPage(Driver);
         DashboardPage = new DashboardPage(Driver);
