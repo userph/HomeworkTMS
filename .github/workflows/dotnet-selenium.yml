@@ -3,8 +3,7 @@ name: Selenium tests
 on:
   push:
     branches: [ "CiCd" ]
-#  pull_request:
-#    branches: [ "master" ]
+
 
 jobs:
 
@@ -12,7 +11,6 @@ jobs:
 
     strategy:
       matrix:
-    #    configuration: [Debug, Release]
         configuration: [Debug]
 
     runs-on: windows-latest  # For a list of available runner types, refer to
@@ -36,9 +34,7 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
- #   - name: Setup MSBuild.exe
- #     uses: microsoft/setup-msbuild@v2
+
 
     # Execute all unit tests in the solution
     - name: Execute Selenium tests
