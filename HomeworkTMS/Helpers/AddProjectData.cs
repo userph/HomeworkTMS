@@ -12,6 +12,8 @@ public class AddProjectData
     public string? Name { get; set; }
     public string? Announcement { get; set; }
 
+    public int UseIndex { get; set; }
+
     public string? ShownTheAnnouncement { get; set; }
 
     public string? EnableTestCaseApprovals { get; set; }
@@ -39,7 +41,7 @@ public class AddProjectData
 
     public string? SystemName { get; set; }
 
-    public string? Type { get; set; }
+    public string? TypeName { get; set; }
 
     public string? Fallback { get; set; }
 

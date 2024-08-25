@@ -15,13 +15,13 @@ public abstract class LcBasePage : LoadableComponent<LcBasePage>
 
     public string FormyProjectHerokuappURL = Configurator.ReadConfiguration().FormyProjectHerokuappUrl;
 
-    public IWebDriver Driver { get; set; }
+    protected IWebDriver Driver { get; set; }
 
 
 
 
 
-    public LcBasePage(IWebDriver driver, bool openPageByUrl = false)
+    protected LcBasePage(IWebDriver driver, bool openPageByUrl = false)
 
     {
 
@@ -80,28 +80,6 @@ public abstract class LcBasePage : LoadableComponent<LcBasePage>
         return Driver.SwitchTo().Alert();
     }
 
-
-    /*
-
-
-        public void OpenPageByUrl(string domainURL, string endPoint)
-
-    {
-        Driver.Navigate().GoToUrl(domainURL + endPoint);
-    }
-
-
-
-      protected override void ExecuteLoad()
-
-    {
-        Driver.Navigate().GoToUrl(GetQacTestRailURL() + GetEndPoint());
-    }
-
-
-
-
-    */
 
 
     protected override void ExecuteLoad()

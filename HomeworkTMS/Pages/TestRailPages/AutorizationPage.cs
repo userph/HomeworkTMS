@@ -10,6 +10,14 @@ using System.Threading.Tasks;
     public class AutorizationPage: LcBasePage
     {
 
+
+    public AutorizationPage(IWebDriver driver, bool openPageByUrl = false) : base(driver, openPageByUrl)
+
+    {
+
+       Driver = driver;
+    }
+
     private string _endPoint = "index.php?/auth/login/";
 
     public string QacTestRailUsernameValue = Configurator.ReadConfiguration().QacTestRailUsername;
@@ -28,16 +36,10 @@ using System.Threading.Tasks;
 
 
 
-    public AutorizationPage(IWebDriver driver) : base(driver)
-
-    {
-        Driver = driver;
 
 
-    }
 
-
-    public IWebDriver Driver { get; set; }
+ //   public IWebDriver Driver { get; set; }
 
 
     public override string GetEndPoint()
@@ -65,35 +67,28 @@ using System.Threading.Tasks;
 
 
 
-    private IWebElement FindInputLoginField() => Driver.FindElement(InputLoginFieldBy);
-    private IWebElement FindInputPasswordField() => Driver.FindElement(InputPasswordFieldBy);
-    private IWebElement FindLoginButton() => Driver.FindElement(LoginButtonBy);
+    public IWebElement FindInputLoginField() => Driver.FindElement(InputLoginFieldBy);
+    public IWebElement FindInputPasswordField() => Driver.FindElement(InputPasswordFieldBy);
+    public IWebElement FindLoginButton() => Driver.FindElement(LoginButtonBy);
 
-
-
-    public void InputLogin(string Username) => FindInputLoginField().SendKeys(Username);
-    public void InputPassword(string Username) => FindInputPasswordField().SendKeys(Username);
-
-    public void PressLoginButton() => FindLoginButton().Click();
-
-
-
-
-    public void Autorization()
-
-    {
-       
-        InputLogin(GetQacTestRailUsername());
-        InputPassword(GetQacTestRailPassword());
-        PressLoginButton();
-
-    }
 
 
 
     protected override bool EvaluateLoadedStatus()
     {
+
         return FindLoginButton().Displayed;
+        
+        
     }
+
+
+
+
+
+
+
+
+
 }
 

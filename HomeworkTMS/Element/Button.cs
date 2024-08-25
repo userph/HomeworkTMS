@@ -12,6 +12,8 @@ public class Button
     }
 
     public bool Displayed => _uiElement.Displayed;
+
+    
     public bool Enabled => _uiElement.Enabled;
     public string Text => _uiElement.Text;
 

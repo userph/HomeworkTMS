@@ -16,10 +16,29 @@ public class WrapperAddProjectTest : BaseTest
     public void Setup()
     {
 
-        AutorizationPage.Load();    
 
-        AutorizationPage.Autorization();
 
+
+      NavigationStep.NavigateToAutorizationPage();
+
+
+
+
+        UserModel admin = new UserModel()
+        {
+            UserName = AutorizationPage.GetQacTestRailUsername(),
+            Password = AutorizationPage.GetQacTestRailPassword()
+
+
+        };
+
+
+
+       
+
+
+
+        UserStep.Autorization(admin);
 
         SubscriptionPage.ErrorModalWindow();
 
@@ -47,45 +66,49 @@ public class WrapperAddProjectTest : BaseTest
 
     {
 
+        ProjectModel project = new ProjectModel()
 
-      ProjectsOverviewPage.PressAddProjectButton();
-
-        WrapperAddProjectPage.InputName();
-        WrapperAddProjectPage.InputAnnouncement();
-        WrapperAddProjectPage.SelectUseRadioButton();
-   
-        WrapperAddProjectPage.ShowAnnouncementCheckboxIsUnchecked();
-        WrapperAddProjectPage.SelectShowAnnouncementCheckbox();
-        WrapperAddProjectPage.ShowAnnouncementCheckboxIsChecked();
-        WrapperAddProjectPage.SelectAccessTab();
-        WrapperAddProjectPage.SelectDefaultAccess();
-        WrapperAddProjectPage.SelectDefectsTab();
-        WrapperAddProjectPage.InputDefectViewUrl();
-        WrapperAddProjectPage.InputDefectAddUrl();
-
-        WrapperAddProjectPage.SelectFromDefectDropdownList();
+        {
 
 
-        WrapperAddProjectPage.SelectReferencesTab();
-        WrapperAddProjectPage.InputReferenceViewUrl();
-        WrapperAddProjectPage.InputReferenceAddUrl();
-        WrapperAddProjectPage.SelectFromReferenceDropdownList();
+            Name = ContentConfigurator.ReadConfiguration().Name,
+            Announcement = ContentConfigurator.ReadConfiguration().Announcement,
 
-      WrapperAddProjectPage.SelectUserVariables();
-       
-       
-        WrapperAddProjectPage.PressAddUserButton();
-        WrapperAddProjectPage.InputUserLabel();
+            UseIndex = ContentConfigurator.ReadConfiguration().UseIndex,
 
-     
-      WrapperAddProjectPage.InputUserDescription();
-        
-      WrapperAddProjectPage.InputUserSystemName();
-        WrapperAddProjectPage.SelectUserType();
+            ShownTheAnnouncement = ContentConfigurator.ReadConfiguration().ShownTheAnnouncement,
 
-        WrapperAddProjectPage.InputUserFallback();
-        WrapperAddProjectPage.AddUser();
-        WrapperAddProjectPage.AddProject();
+            EnableTestCaseApprovals = ContentConfigurator.ReadConfiguration().EnableTestCaseApprovals,
+
+            DefaultAccess = ContentConfigurator.ReadConfiguration().DefaultAccess,
+            DefectViewUrl = ContentConfigurator.ReadConfiguration().DefectViewUrl,
+
+            DefectAddUrl = ContentConfigurator.ReadConfiguration().DefectAddUrl,
+            DefectPlugin = ContentConfigurator.ReadConfiguration().DefectPlugin,
+            ReferenceViewUrl = ContentConfigurator.ReadConfiguration().ReferenceViewUrl,
+
+            ReferenceAddUrl = ContentConfigurator.ReadConfiguration().ReferenceAddUrl,
+            ReferencePlugin = ContentConfigurator.ReadConfiguration().DefectPlugin,
+
+            Label = ContentConfigurator.ReadConfiguration().Label,
+
+            Description = ContentConfigurator.ReadConfiguration().Description,
+
+            SystemName = ContentConfigurator.ReadConfiguration().SystemName,
+            TypeName = ContentConfigurator.ReadConfiguration().TypeName,
+
+            Fallback = ContentConfigurator.ReadConfiguration().Fallback
+
+
+
+        };
+
+
+
+
+
+        ProjectsOverviewPage.PressAddProjectButton();
+        UserStep.InputProjectData(project);
         ProjectsOverviewPage.CheckProjectAddition();
 
   
