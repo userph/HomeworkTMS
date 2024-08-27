@@ -33,14 +33,23 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+      
 
 
 
     # Execute all unit tests in the solution
     - name: Execute Selenium tests
+  
+
       with:
         # Use the version of Chrome you need
         chrome_version: '128.0.6533.100'
-      run: dotnet test
+
+      run: |
+        # Install dependencies
+        dotnet restore
+        
+        # Run Selenium tests
+        dotnet test
 
 
