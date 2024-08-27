@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Tue Aug 27 17:35:14 GMT 2024","Tue Aug 27 17:35:14 GMT 2024","314","","","","WrapperAddProjectTest","AddProject","AddProject",""
+"broken","Tue Aug 27 17:35:14 GMT 2024","Tue Aug 27 17:35:15 GMT 2024","358","","","","WrapperAddProjectTest","DeleteProject","DeleteProject",""
+"broken","Tue Aug 27 17:35:14 GMT 2024","Tue Aug 27 17:35:15 GMT 2024","446","","","","WrapperCheckboxesTest","TestCheckboxesWithWrapper","TestCheckboxesWithWrapper",""
