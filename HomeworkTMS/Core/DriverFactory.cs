@@ -26,6 +26,8 @@ public class DriverFactory
     {
         var firefoxOptions = new FirefoxOptions();
         firefoxOptions.AddArgument("--incognito");
+        firefoxOptions.AddArgument("--remote-debugging-pipe");
+
 
         new DriverManager().SetUpDriver(new FirefoxConfig());
 
