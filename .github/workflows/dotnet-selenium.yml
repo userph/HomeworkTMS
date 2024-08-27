@@ -36,9 +36,9 @@ jobs:
 
 
     # Install a specific version of Google Chrome
-    - name: Install Google Chrome
-      run: |
-        choco install googlechrome --version=128.0.6613.85 --params="'/NoUpdating'"
+    #- name: Install Google Chrome
+    #  run: |
+    #    choco install googlechrome --version=128.0.6613.85 --params="'/NoUpdating'"
 
 
     - name: Execute Selenium tests 
