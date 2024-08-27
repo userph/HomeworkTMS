@@ -33,6 +33,17 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
+    - name: Install Google Chrome
+      uses: ./
+      with:
+        chrome-version: 128
+        install-chromedriver: true
+        install-dependencies: true
+        id: setup-chrome
+    - run: |
+          "${{ steps.setup-chrome.outputs.chrome-path }}" --version
+          "${{ steps.setup-chrome.outputs.chromedriver-path }}" --version
+
 
     - name: Execute Selenium tests 
       run: |
@@ -58,16 +69,7 @@ jobs:
         allure_results: HomeworkTMS/bin/Debug/net8.0/allure-results
 
 
-    - name: Install Google Chrome
-      uses: ./
-      with:
-        chrome-version: 128
-        install-chromedriver: true
-        install-dependencies: true
-        id: setup-chrome
-    - run: |
-          "${{ steps.setup-chrome.outputs.chrome-path }}" --version
-          "${{ steps.setup-chrome.outputs.chromedriver-path }}" --version
+ 
 
     - name: Publish test report
       uses: peaceiris/actions-gh-pages@v3
