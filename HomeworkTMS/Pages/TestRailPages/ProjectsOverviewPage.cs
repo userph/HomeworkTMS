@@ -24,10 +24,9 @@ using System.Threading.Tasks;
 
     private static readonly By MessageSuccessfullyAddedBy = (By.XPath("//div[contains(text(),'Successfully added the new project.')]"));
 
-    //    private static readonly By ProjectDeleteButtonBy = (By.XPath($"//a[contains(., '{formattedDate}')]/following::div[@data-testid='projectDeleteButton'][1]"));
+    private static readonly By ProjectDeleteButtonBy = (By.XPath($"//a[contains(., '{formattedDate}')]/following::div[@data-testid='projectDeleteButton'][1]"));
 
-    private static readonly By ProjectDeleteButtonBy = (By.XPath($"//a[contains(., '07.08.2024')]/following::div[@data-testid='projectDeleteButton'][1]"));
-
+   
     private static readonly By DeleteCheckboxBy = (By.XPath("//div[@data-testid='caseFieldsTabDeleteDialogCheckbox']/descendant::input[@data-testid='deleteCheckBoxTestId']"));
 
     private static readonly By ConfirmationDeleteOkBy = (By.XPath("//a[@data-testid='caseFieldsTabDeleteDialogButtonOk']"));

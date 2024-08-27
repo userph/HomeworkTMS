@@ -8,7 +8,9 @@ using OpenQA.Selenium;
 
     private readonly UiElement _uiElement;
 
-    DateTime _currentDateTime = DateTime.Now;
+    private static DateTime _currentDateTime = DateTime.Now;
+    
+    private static string formattedDate = _currentDateTime.ToString("dd.MM.yyyy");
 
     public StringField(IWebDriver driver, By locator)
     {
@@ -25,7 +27,7 @@ using OpenQA.Selenium;
     {
 
 
-        _uiElement.SendKeys(Key + " (timestamp:" + _currentDateTime + ")");
+        _uiElement.SendKeys(Key + " (timestamp:" + formattedDate + ")");
     }
 
 
