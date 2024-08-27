@@ -36,8 +36,17 @@ jobs:
 
 
 
-    # Execute all unit tests in the solution
-    - name: Execute Selenium tests
-      run: dotnet test
+    # Install a specific version of Google Chrome
+    - name: Install Google Chrome
+      run: |
+        choco install googlechrome --version=128.0.6613.85 --params="'/NoUpdating'"
+
+
+    - name: Execute Selenium tests 
+      run: |
+        # Install dependencies
+        dotnet restore
+        # Run Selenium tests
+        dotnet test
 
 

@@ -11,12 +11,6 @@ using System.Threading.Tasks;
 
     private static DateTime currentDate = DateTime.Today;
     private static string formattedDate = currentDate.ToString("dd.MM.yyyy");
-
-
-
-
-
-
     private string _endPoint = "index.php?/admin/projects/overview";
 
 
@@ -26,6 +20,7 @@ using System.Threading.Tasks;
 
     private static readonly By ProjectDeleteButtonBy = (By.XPath($"//a[contains(., '{formattedDate}')]/following::div[@data-testid='projectDeleteButton'][1]"));
 
+   
     private static readonly By DeleteCheckboxBy = (By.XPath("//div[@data-testid='caseFieldsTabDeleteDialogCheckbox']/descendant::input[@data-testid='deleteCheckBoxTestId']"));
 
     private static readonly By ConfirmationDeleteOkBy = (By.XPath("//a[@data-testid='caseFieldsTabDeleteDialogButtonOk']"));

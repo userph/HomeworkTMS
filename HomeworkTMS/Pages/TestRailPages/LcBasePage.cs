@@ -19,7 +19,7 @@ public abstract class LcBasePage : LoadableComponent<LcBasePage>
 
 
 
-
+    //
 
     protected LcBasePage(IWebDriver driver, bool openPageByUrl = false)
 
