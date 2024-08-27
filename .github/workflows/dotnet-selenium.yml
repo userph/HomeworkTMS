@@ -37,13 +37,10 @@ jobs:
 
 
 
-    # Execute all unit tests in the solution
+    # Install a specific version of Google Chrome
     - name: Install Google Chrome
-      uses: microsoft/playwright-github-action@v1
-
-      with:
-        # Use the version of Chrome you need
-        chrome_version: '128.x.x.x'
+      run: |
+        choco install googlechrome --version=128.0.0 --params="'/NoUpdating'"
 
 
     - name: Execute Selenium tests 
