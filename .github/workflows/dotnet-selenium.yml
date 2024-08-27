@@ -38,6 +38,9 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Execute Selenium tests
+      with:
+        # Use the version of Chrome you need
+        chrome_version: '128.0.6533.100'
       run: dotnet test
 
 
