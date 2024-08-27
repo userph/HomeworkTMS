@@ -38,17 +38,18 @@ jobs:
 
 
     # Execute all unit tests in the solution
-    - name: Execute Selenium tests
-  
+    - name: Install Google Chrome
+      uses: microsoft/playwright-github-action@v1
 
       with:
         # Use the version of Chrome you need
         chrome_version: '128.0.6533.100'
 
+
+    - name: Execute Selenium tests 
       run: |
         # Install dependencies
         dotnet restore
-        
         # Run Selenium tests
         dotnet test
 
