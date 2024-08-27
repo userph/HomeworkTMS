@@ -34,13 +34,6 @@ jobs:
         dotnet-version: 8.0.x
 
 
-
-    # Install a specific version of Google Chrome
-    #- name: Install Google Chrome
-    #  run: |
-    ##    choco install googlechrome --version=128.0.6613.85 --params="'/NoUpdating'"
-
-
     - name: Execute Selenium tests 
       run: |
         # Install dependencies
