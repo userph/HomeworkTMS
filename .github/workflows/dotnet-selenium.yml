@@ -15,12 +15,6 @@ jobs:
 
     runs-on: ubuntu-latest  
 
-    env:
-      Solution_Name: your-solution-name                         # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: your-test-project-path                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
-
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
@@ -33,22 +27,10 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-    - name: Install Google Chrome
-      uses: ./
-      with:
-        chrome-version: 128
-        install-chromedriver: true
-        install-dependencies: true
-        id: setup-chrome
-    - run: |
-          "${{ steps.setup-chrome.outputs.chrome-path }}" --version
-          "${{ steps.setup-chrome.outputs.chromedriver-path }}" --version
-
-
     - name: Execute Selenium tests 
       run: |
         # Install dependencies
-        dotnet restore
+        #dotnet restore
         # Run Selenium tests
         dotnet test
 
