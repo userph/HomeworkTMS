@@ -13,6 +13,7 @@ public class DriverFactory
     {
         var chromeOptions = new ChromeOptions();
         chromeOptions.AddArgument("--incognito");
+        chromeOptions.AddArgument("--remote-debugging-pipe");
 
         new DriverManager().SetUpDriver(new ChromeConfig());
 
@@ -26,9 +27,7 @@ public class DriverFactory
     {
         var firefoxOptions = new FirefoxOptions();
         firefoxOptions.AddArgument("--incognito");
-        firefoxOptions.AddArgument("--remote-debugging-pipe");
-
-
+       
         new DriverManager().SetUpDriver(new FirefoxConfig());
 
         return new FirefoxDriver(firefoxOptions);
