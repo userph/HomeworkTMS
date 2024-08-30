@@ -13,7 +13,7 @@ using TestRail.Elements;
 public class AddProjectPage : LcBasePage
 {
 
-    private string _endPoint = "index.php?/admin/projects/add/1";
+    private string _endPoint = "1index.php?/admin/projects/add/1";
     public Tab Tab { get; set; }
 
 
