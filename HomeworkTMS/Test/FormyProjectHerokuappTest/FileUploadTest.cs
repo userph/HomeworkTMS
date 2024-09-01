@@ -21,6 +21,7 @@ using System.Threading.Tasks;
 
 
     [Test]
+    [Category("Common")]
 
     public void UploadTest()
 

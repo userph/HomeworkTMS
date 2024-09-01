@@ -61,6 +61,7 @@ public class WrapperAddProjectTest : BaseTest
 
 
     [Test, Order(0)]
+    [Category("Project")]
 
     public void AddProject()
 
@@ -117,7 +118,7 @@ public class WrapperAddProjectTest : BaseTest
     
    
     [Test, Order(1)]
-
+    [Category("Project")]
     public void DeleteProject()
 
     {

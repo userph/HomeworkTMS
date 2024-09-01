@@ -1,8 +1,19 @@
 name: Selenium tests
 
 on:
-  push:
-    branches: [ "CiCd" ]
+  #push:
+    #branches: [ "CiCd" ]
+  workflow_dispatch:
+   inputs:
+     test_category: 
+      description: 'Select test category' 
+      type: choice
+      options:
+      - Common
+      - Project
+      - RandomError
+      required: true 
+    
 
 
 jobs:
@@ -13,14 +24,8 @@ jobs:
       matrix:
         configuration: [Debug]
 
-    runs-on: windows-latest  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
-
-    env:
-      Solution_Name: your-solution-name                         # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: your-test-project-path                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+    runs-on: ubuntu-latest  
+                            
 
     steps:
     - name: Checkout Repo
@@ -34,19 +39,54 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-
-
-    # Install a specific version of Google Chrome
     - name: Install Google Chrome
       run: |
-        choco install googlechrome --version=128.0.6613.85 --params="'/NoUpdating'"
+        sudo apt-get update
+        sudo apt-get install -y wget
+        wget https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb
+        sudo apt-get install -y ./google-chrome-beta_current_amd64.deb
+        sudo apt-get -y --no-install-recommends install -f  # Установить зависимости, если необходимо
+      
 
-
-    - name: Execute Selenium tests 
+    - name: Execute Common tests 
+      if: github.event.inputs.test_category == 'Common'
       run: |
-        # Install dependencies
         dotnet restore
-        # Run Selenium tests
+        dotnet test
+
+    - name: Execute Project tests 
+      if: github.event.inputs.test_category == 'Project'
+      run: |
+        dotnet restore
+        dotnet test
+
+    - name: Execute RandomError tests 
+      if: github.event.inputs.test_category == 'RandomError'
+      run: |
+        dotnet restore
         dotnet test
 
 
+    - name: Load test report history
+      uses: actions/checkout@v3
+      if: always()
+      continue-on-error: true
+      with:
+        ref: gh-pages
+        path: gh-pages
+
+    - name: Build test report
+      uses: simple-elf/allure-report-action@v1.7
+      if: always()
+      with:
+        gh_pages: gh-pages
+        allure_history: allure-history
+        allure_results: HomeworkTMS/bin/Debug/net8.0/allure-results
+
+    - name: Publish test report
+      uses: peaceiris/actions-gh-pages@v3
+      if: always()
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: allure-history

@@ -19,8 +19,9 @@ using System.Threading.Tasks;
     
 
         [Test]
+        [Category("Common")]
 
-        public void HW21_1_DynamicControls()
+    public void HW21_1_DynamicControls()
         
         {
 

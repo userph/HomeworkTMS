@@ -17,6 +17,7 @@ public class WindowsTest : BaseTest
     }
 
     [Test]
+    [Category("Common")]
 
     public void NewTabTest()
 
@@ -30,6 +31,7 @@ public class WindowsTest : BaseTest
 
 
     [Test]
+    [Category("Common")]
 
     public void MainTabTest()
 

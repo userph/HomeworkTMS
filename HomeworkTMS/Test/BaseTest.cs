@@ -111,7 +111,7 @@ public class BaseTest
 
     [TearDown]
 
-    [AllureAfter("Çàêðûâàåì áðàóçåð.")]
+    [AllureAfter("Driver quit")]
     public void TearDown()
     {
 
