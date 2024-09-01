@@ -17,6 +17,7 @@ public class AddRemoveElementsTest : BaseTest
 
 
     [Test]
+    [Category("Common")]
 
     public void HW18_A_Add_Remove_Elements()
 

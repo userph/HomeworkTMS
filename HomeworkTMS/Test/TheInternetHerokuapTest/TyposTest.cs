@@ -27,8 +27,9 @@ public class TyposTest: BaseTest
 
 
         [Test]
+        [Category("RandomError")]
 
-        public void HW18_F_Typos()
+    public void HW18_F_Typos()
 
         {
 

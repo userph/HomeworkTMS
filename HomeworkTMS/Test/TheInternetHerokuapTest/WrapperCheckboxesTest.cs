@@ -18,10 +18,11 @@ using OpenQA.Selenium.Support.UI;
     }
 
     [Test]
+    [Category("Common")]
 
     public void TestCheckboxesWithWrapper() 
     {
-        Thread.Sleep(1000);
+      
 
        
 

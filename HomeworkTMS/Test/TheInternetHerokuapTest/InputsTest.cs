@@ -25,6 +25,7 @@ using System.Threading.Tasks;
 
 
         [Test]
+        [Category("Common")]
 
         public void HW18_D_Inputs_Int()
 
@@ -40,7 +41,8 @@ using System.Threading.Tasks;
         }
 
         [Test]
-        public void HW18_D_Inputs_Int_Up()
+        [Category("Common")]
+    public void HW18_D_Inputs_Int_Up()
 
         {
 

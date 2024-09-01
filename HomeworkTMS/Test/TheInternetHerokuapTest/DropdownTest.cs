@@ -19,8 +19,9 @@ using System.Threading.Tasks;
 
 
     [Test]
+    [Category("Common")]
 
-        public void HW18_C_Dropdown()
+    public void HW18_C_Dropdown()
 
         {
         

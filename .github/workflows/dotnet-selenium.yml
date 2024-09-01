@@ -1,8 +1,19 @@
 name: Selenium tests
 
 on:
-  push:
-    branches: [ "CiCd" ]
+  #push:
+    #branches: [ "CiCd" ]
+  workflow_dispatch:
+   inputs:
+     test_category: 
+      description: 'Select test category' 
+      type: choice
+      options:
+      - Common
+      - Project
+      - RandomError
+      required: true 
+    
 
 
 jobs:
@@ -13,14 +24,8 @@ jobs:
       matrix:
         configuration: [Debug]
 
-    runs-on: ubuntu-latest  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
-
-    env:
-      Solution_Name: your-solution-name                         # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: your-test-project-path                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+    runs-on: ubuntu-latest  
+                            
 
     steps:
     - name: Checkout Repo
@@ -43,11 +48,22 @@ jobs:
         sudo apt-get -y --no-install-recommends install -f  # Установить зависимости, если необходимо
       
 
-    - name: Execute Selenium tests 
+    - name: Execute Common tests 
+      if: github.event.inputs.test_category == 'Common'
       run: |
-        # Install dependencies
         dotnet restore
-        # Run Selenium tests
+        dotnet test
+
+    - name: Execute Project tests 
+      if: github.event.inputs.test_category == 'Project'
+      run: |
+        dotnet restore
+        dotnet test
+
+    - name: Execute RandomError tests 
+      if: github.event.inputs.test_category == 'RandomError'
+      run: |
+        dotnet restore
         dotnet test
 
 

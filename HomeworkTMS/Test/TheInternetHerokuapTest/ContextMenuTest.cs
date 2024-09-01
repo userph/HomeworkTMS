@@ -20,6 +20,7 @@ public class ContextMenuTest : BaseTest
 
 
     [Test]
+    [Category("Common")]
     public void Test()
 
     {

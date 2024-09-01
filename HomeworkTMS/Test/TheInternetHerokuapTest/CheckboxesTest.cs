@@ -19,6 +19,7 @@ public class Checkboxes : BaseTest
 
 
     [Test]
+    [Category("Common")]
 
     public void HW18_B_Checkboxes_FirstCheckbox()
 
@@ -35,6 +36,7 @@ public class Checkboxes : BaseTest
 
 
     [Test]
+    [Category("Common")]
 
     public void HW18_B_Checkboxes_SecondCheckbox()
 
