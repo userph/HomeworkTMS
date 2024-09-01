@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Sep 01 16:28:24 GMT 2024","Sun Sep 01 16:28:42 GMT 2024","17836","","","","WrapperAddProjectTest","AddProject","AddProject",""
+"passed","Sun Sep 01 16:28:25 GMT 2024","Sun Sep 01 16:28:26 GMT 2024","791","","","","InputsTest","HW18_D_Inputs_String","HW18_D_Inputs_String",""
+"passed","Sun Sep 01 16:28:25 GMT 2024","Sun Sep 01 16:28:29 GMT 2024","3787","","","","WrapperCheckboxesTest","TestCheckboxesWithWrapper","TestCheckboxesWithWrapper",""
+"passed","Sun Sep 01 16:28:22 GMT 2024","Sun Sep 01 16:28:26 GMT 2024","4515","","","","DynamicControlsTest","HW21_1_DynamicControls","HW21_1_DynamicControls",""
+"passed","Sun Sep 01 16:28:42 GMT 2024","Sun Sep 01 16:28:55 GMT 2024","13197","","","","WrapperAddProjectTest","DeleteProject","DeleteProject",""
+"passed","Sun Sep 01 16:28:24 GMT 2024","Sun Sep 01 16:28:25 GMT 2024","924","","","","InputsTest","HW18_D_Inputs_Int_Up","HW18_D_Inputs_Int_Up",""
