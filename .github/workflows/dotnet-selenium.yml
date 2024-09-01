@@ -52,19 +52,19 @@ jobs:
       if: github.event.inputs.test_category == 'Common'
       run: |
         dotnet restore
-        dotnet test
+        dotnet test --filter Category=Common
 
     - name: Execute Project tests 
       if: github.event.inputs.test_category == 'Project'
       run: |
         dotnet restore
-        dotnet test
+        dotnet test --filter Category=Project
 
     - name: Execute RandomError tests 
       if: github.event.inputs.test_category == 'RandomError'
       run: |
         dotnet restore
-        dotnet test
+        dotnet test --filter Category=RandomError
 
 
     - name: Load test report history
