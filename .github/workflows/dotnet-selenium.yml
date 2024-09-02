@@ -3,7 +3,7 @@ run-name: Run ${{github.event.inputs.test_category}} test
 
 on:
   schedule:
-  - cron: '45 17 * * *'
+  - cron: '47 09 * * *'
   #push:
     #branches: [ "CiCd" ]
   workflow_dispatch:
