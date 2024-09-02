@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Sep 02 08:42:02 GMT 2024","Mon Sep 02 08:42:16 GMT 2024","13464","","","","WrapperAddProjectTest","DeleteProject","DeleteProject",""
+"passed","Mon Sep 02 08:41:36 GMT 2024","Mon Sep 02 08:42:02 GMT 2024","26044","","","","WrapperAddProjectTest","AddProject","AddProject",""
