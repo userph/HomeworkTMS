@@ -1,0 +1,21 @@
+{
+  "stringType": "test",
+  "numberType": 10,
+  "boolenType": true,
+  "arrayType1": ["1", "2", "3"],
+  "arrayType2": [
+    {
+      "stringType": "test",
+      "numberType": 10,
+      "boolenType": true
+    },
+
+    {
+      "stringType": "test1",
+      "numberType": 11,
+      "boolenType": false
+    }
+  ],
+
+  "nullType": null
+}

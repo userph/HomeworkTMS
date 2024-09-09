@@ -18,6 +18,7 @@
 
     public string? FormyProjectHerokuappUrl {get; set;}
 
+    public string? ReqresUrl { get; set; }
 
 
 
