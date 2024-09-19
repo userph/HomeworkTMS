@@ -12,7 +12,7 @@ using TestRail.Elements;
 public class AddProjectPage : LcBasePage
 {
 
-    private string _endPoint = "index.php?/admin/projects/add/1";
+    private string _endPoint = "/index.php?/admin/projects/add/1";
     public Tab Tab { get; set; }
 
 
@@ -159,11 +159,11 @@ public class AddProjectPage : LcBasePage
     }
 
 
-    public void SelectShowAnnouncementCheckbox(string ShowAnnouncementCheckboxValue)
+    public void SelectShowAnnouncementCheckbox(bool ShowAnnouncementCheckboxValue)
 
     {
 
-        if (ShowAnnouncementCheckboxValue == "yes")
+        if (ShowAnnouncementCheckboxValue == true)
 
             ShowAnnouncementCheckbox().Select();
 

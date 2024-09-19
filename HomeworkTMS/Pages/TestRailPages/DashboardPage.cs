@@ -10,7 +10,7 @@ public class DashboardPage : BasePage
 {
 
 
-    private string _endPoint = "index.php?/dashboard";
+    private string _endPoint = "/index.php?/dashboard";
 
 
 

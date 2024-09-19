@@ -18,7 +18,7 @@ using System.Threading.Tasks;
        Driver = driver;
     }
 
-    private string _endPoint = "index.php?/auth/login/";
+    private string _endPoint = "/index.php?/auth/login/";
 
     public string QacTestRailUsernameValue = Configurator.ReadConfiguration().QacTestRailUsername;
 

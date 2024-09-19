@@ -20,6 +20,8 @@
 
     public string? ReqresUrl { get; set; }
 
+    public DbSettings DbSettings { get; set; }
+
 
 
 

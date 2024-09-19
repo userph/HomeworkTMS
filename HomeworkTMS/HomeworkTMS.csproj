@@ -10,12 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="NLog.cs" />
     <Compile Remove="Test\TheInternetHerokuapTest\AddRemoveElementsTest.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="addprojectdata.json" />
     <None Remove="appsettings.json" />
+    <None Remove="NLog.config" />
     <None Remove="Resources\FileForUpload.txt" />
     <None Remove="Resources\testObject1.json" />
   </ItemGroup>
@@ -25,6 +27,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NLog.config">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>NLog.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\FileForUpload.txt">
@@ -46,6 +53,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
     <PackageReference Include="NLog" Version="5.3.3" />
+    <PackageReference Include="Npgsql" Version="8.0.4" />
     <PackageReference Include="NUnit" Version="4.2.2" />
     <PackageReference Include="NUnit.Analyzers" Version="4.3.0">
       <PrivateAssets>all</PrivateAssets>
@@ -61,13 +69,6 @@
 
   <ItemGroup>
     <Using Include="NUnit.Framework" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="NLog.config">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>NLog.cs</LastGenOutput>
-    </None>
   </ItemGroup>
 
   <ItemGroup>

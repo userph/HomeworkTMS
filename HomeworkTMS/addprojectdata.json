@@ -2,7 +2,7 @@
   "Name": "TestPhilipProject",
   "Announcement": "TestAnnouncement",
   "UseIndex": 2,
-  "ShownTheAnnouncement": "yes",
+  "ShownTheAnnouncement": true,
   "EnableTestCaseApprovals": "yes",
   "DefaultAccess": "Tester",
   "DefectViewUrl": "https://tracker.com/view?id=%id%",

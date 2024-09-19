@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
     private static DateTime currentDate = DateTime.Today;
     private static string formattedDate = currentDate.ToString("dd.MM.yyyy");
-    private string _endPoint = "index.php?/admin/projects/overview";
+    private string _endPoint = "/index.php?/admin/projects/overview";
 
 
     private static readonly By AddProjectButtonBy = (By.XPath("//a[contains(., 'Add Project')]"));

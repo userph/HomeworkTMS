@@ -2,7 +2,7 @@
   "stringType": "test",
   "numberType": 10,
   "boolenType": true,
-  "arrayType1": ["1", "2", "3"],
+  "arrayType1": [ "1", "2", "3" ],
   "arrayType2": [
     {
       "stringType": "test",
@@ -19,3 +19,5 @@
 
   "nullType": null
 }
+
+

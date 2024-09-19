@@ -14,7 +14,7 @@ public class DriverFactory
         var chromeOptions = new ChromeOptions();
         chromeOptions.AddArgument("--incognito");
         chromeOptions.AddArgument("--remote-debugging-pipe");
-        chromeOptions.AddArgument("--headless");
+     //   chromeOptions.AddArgument("--headless");
         chromeOptions.AddArgument("--no-sandbox");
         chromeOptions.AddArgument("--disable-dev-shm-usage");
         chromeOptions.AddArgument("--disable-gpu");

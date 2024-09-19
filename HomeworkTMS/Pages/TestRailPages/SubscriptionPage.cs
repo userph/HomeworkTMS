@@ -9,7 +9,7 @@ using System.Threading.Tasks;
     public class SubscriptionPage:BasePage
     {
 
-    private string _endPoint = "index.php?/admin/subscription";
+    private string _endPoint = "/index.php?/admin/subscription";
 
 //    private string ProjectsOverviewEndPoint = "index.php?/admin/projects/overview"; 
 

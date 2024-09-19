@@ -9,7 +9,7 @@ using OpenQA.Selenium.Support.UI;
 using static System.Net.Mime.MediaTypeNames;
 
 [TestFixture]
-public class WrapperAddProjectTest : BaseTest
+public class LifeCycleProjectTest : BaseTest
 {
 
     [SetUp]
@@ -40,10 +40,10 @@ public class WrapperAddProjectTest : BaseTest
 
         UserStep.Autorization(admin);
 
-        SubscriptionPage.ErrorModalWindow();
+       // SubscriptionPage.ErrorModalWindow();
 
 
-        SubscriptionPage.PressConfirmationButton();
+       // SubscriptionPage.PressConfirmationButton();
 
 
         ProjectsOverviewPage.OpenPageByUrl(ProjectsOverviewPage.GetQacTestRailURL(), ProjectsOverviewPage.GetEndPoint());

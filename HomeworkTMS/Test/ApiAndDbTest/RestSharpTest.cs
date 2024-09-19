@@ -29,7 +29,6 @@ namespace HomeworkTMS.Test.ApiTest
             RestRequest request = new RestRequest(endPoint);
 
             //Get response
-
             RestResponse response = client.ExecuteGet(request); 
 
             _logger.Info(response.Content);
@@ -37,6 +36,32 @@ namespace HomeworkTMS.Test.ApiTest
             Assert.That(response.StatusCode == HttpStatusCode.OK);
 
         
+        }
+
+        [Test]
+
+        public void SimplePostTest() 
+        
+        {
+
+            const string endPoint = "/api/users";
+            //Create client
+            RestClient client = new RestClient(Configurator.ReadConfiguration().ReqresUrl);
+
+            //Create request
+            RestRequest request = new RestRequest(endPoint);
+            request.AddJsonBody("{\"name\": \"morpheus\",\"job\": \"leader\"}");
+
+            //Get response
+            RestResponse response = client.ExecutePost(request);
+
+            _logger.Info(response.Content);
+
+           
+            Assert.That(response.StatusCode == HttpStatusCode.Created);
+
+
+
         }
 
 

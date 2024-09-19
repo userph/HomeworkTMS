@@ -14,7 +14,7 @@ public class AddProjectData
 
     public int UseIndex { get; set; }
 
-    public string? ShownTheAnnouncement { get; set; }
+    public bool ShownTheAnnouncement { get; set; }
 
     public string? EnableTestCaseApprovals { get; set; }
 
